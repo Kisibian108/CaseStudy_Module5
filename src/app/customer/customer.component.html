@@ -1,0 +1,397 @@
+<body>
+<div class="container">
+  <div class="row">
+    <img src="../assets/img/123.png" width="100%" height="300px" alt="">
+  </div>
+  <div class="row">
+    <h2 style="text-align: center; margin-top: 10px">Customer management</h2>
+  </div>
+  <div class="row" style="margin-top: 10px; margin-bottom: 50px">
+    <div class="col-12 ">
+      <div id="menu">
+        <ul>
+          <li><a href="#" style="text-align: center; font-size: 25px">Customer</a>
+            <ul>
+              <li><a href="../customer/create.html">Add new customer</a></li>
+              <li><a href="../customer/index.html">List customer</a></li>
+            </ul>
+          </li>
+          <li><a href="../facility/index.html" style="text-align: center; font-size: 25px">Facility </a>
+            <ul>
+              <li><a href="../facility/create.html">Add new facility</a></li>
+              <li><a href="../facility/index.html">List facility</a></li>
+            </ul>
+          </li>
+          <li><a href="#" style="text-align: center; font-size: 25px">Contract</a>
+            <ul>
+              <li><a href="#">Add new contract</a></li>
+              <li><a href="#">List contract</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <tr>
+        <th>STT</th>
+        <th>Customer Type</th>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Gender</th>
+        <th>IdCard</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>VIP</td>
+        <td>Nguyen Truong Lam</td>
+        <td>10/08/1992</td>
+        <td>Male</td>
+        <td>184016595</td>
+        <td>0973439239</td>
+        <td>kisibian108@gmail.com</td>
+        <td>Huong Khe Ha Tinh</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button" href="edit.html">Edit</a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Delete
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Do you want to delete <span style="color: red">this customer</span>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>Normal</td>
+        <td>Nguyen Ngoc Dang</td>
+        <td>10/09/1989</td>
+        <td>Female</td>
+        <td>132145637</td>
+        <td>0972321537</td>
+        <td>Ngoc@gmail.com</td>
+        <td>Da Nang</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button" href="edit.html">Edit</a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            Delete
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Do you want to delete <span style="color: red">this customer</span>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>VIP</td>
+        <td>Nguyen Xuan Linh</td>
+        <td>10/08/1992</td>
+        <td>Male</td>
+        <td>184016595</td>
+        <td>0973439239</td>
+        <td>kisibian108@gmail.com</td>
+        <td>Huong Khe</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button" href="edit.html">Edit</a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+            Delete
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Do you want to delete <span style="color: red">this customer</span>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td>Normal</td>
+        <td>Nguyen Thu Hoai</td>
+        <td>10/09/1989</td>
+        <td>Female</td>
+        <td>132145637</td>
+        <td>0972321537</td>
+        <td>Ngoc@gmail.com</td>
+        <td>Da Nang</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button" href="edit.html">Edit</a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+            Delete
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel3">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Do you want to delete <span style="color: red">this customer</span>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>5</td>
+        <td>VIP</td>
+        <td>Nguyen Thu Hien</td>
+        <td>10/08/1992</td>
+        <td>Male</td>
+        <td>184016595</td>
+        <td>0973439239</td>
+        <td>kisibian108@gmail.com</td>
+        <td>Huong Khe Ha Tinh</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button" href="edit.html">Edit</a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+            Delete
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel4">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Do you want to delete <span style="color: red">this customer</span>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div >
+  <nav aria-label="..." >
+    <ul class="pagination">
+      <li  class="page-item">
+        <a class="page-link" href="#" >Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="row">
+  <div class="col-12 border border-dark ">
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+      <!-- Section: Social media -->
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+      >
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>CodeGym Da Nang
+              </h6>
+              <p>
+                295 Nguyen Tat Thanh Street, Thanh Binh Ward, Hai Chau District, Danang City,
+                Vietnam
+                Tel.: 84-236-3847 333/888 * Fax: 84-236-3847 666
+                Email: reservation@codegym.com * www.codegym.com
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Products
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Angular</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">React</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Vue</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Laravel</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Useful links
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Settings</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Contact
+              </h6>
+              <p><i class="fas fa-home me-3"></i> 295 Nguyen Tat Thanh , Hai Chau, Da Nang</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                info@example.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </div>
+</div>
