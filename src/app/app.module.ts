@@ -45,8 +45,6 @@ const routes: Routes = [
     FacilityCreateComponent,
     ContractCreateComponent,
     CustomerManagementComponent,
-    HeaderComponent,
-    FooterComponent,
     DeleteComponent
 
   ],
