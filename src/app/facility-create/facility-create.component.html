@@ -5,12 +5,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<h3>Add Product</h3>
-<p>
-  <a th:href="@{/facility}">
-    Back to facility list
-  </a>
-</p>
+
 <div class="container">
   <form th:action="@{/facility/save}" th:object="${facility}" method="post" novalidate="novalidate">
     <div class="mb-3">
@@ -77,7 +72,7 @@
       <label class="form-label">Free service</label>
       <input type="text" th:field="*{free}" class="form-control">
     </div>
-    <input type="submit" value="Save"/>
+    <input type="submit" class="btn btn-primary" value="Save"/>
   </form>
 </div>
 <!--<script th:src="@{jquery-3.6.0.min.js}"></script>-->

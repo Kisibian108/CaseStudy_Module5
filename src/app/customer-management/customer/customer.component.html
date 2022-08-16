@@ -1,0 +1,134 @@
+<body>
+<div class="row">
+  <h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px">Customer management</h2>
+</div>
+<div class="container">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>STT</th>
+        <th>Customer Type</th>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Gender</th>
+        <th>IdCard</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>VIP</td>
+        <td>Nguyen Truong Lam</td>
+        <td>10/08/1992</td>
+        <td>Male</td>
+        <td>184016595</td>
+        <td>0973439239</td>
+        <td>kisibian108@gmail.com</td>
+        <td>Huong Khe Ha Tinh</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button"
+             [routerLink]="['/customer-edit']">Edit</a>
+        </td>
+        <td>
+          <app-delete></app-delete>
+        </td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>Normal</td>
+        <td>Nguyen Ngoc Dang</td>
+        <td>10/09/1989</td>
+        <td>Female</td>
+        <td>132145637</td>
+        <td>0972321537</td>
+        <td>Ngoc@gmail.com</td>
+        <td>Da Nang</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button" href="http://localhost:4200/customer-edit">Edit</a>
+        </td>
+        <td>
+
+          <app-delete></app-delete>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>VIP</td>
+        <td>Nguyen Xuan Linh</td>
+        <td>10/08/1992</td>
+        <td>Male</td>
+        <td>184016595</td>
+        <td>0973439239</td>
+        <td>kisibian108@gmail.com</td>
+        <td>Huong Khe</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button" [routerLink]="['/customer-edit']">Edit</a>
+        </td>
+        <td>
+
+          <app-delete></app-delete>
+        </td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td>Normal</td>
+        <td>Nguyen Thu Hoai</td>
+        <td>10/09/1989</td>
+        <td>Female</td>
+        <td>132145637</td>
+        <td>0972321537</td>
+        <td>Ngoc@gmail.com</td>
+        <td>Da Nang</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button" [routerLink]="['/customer-edit']">Edit</a>
+        </td>
+        <td>
+
+          <app-delete></app-delete>
+        </td>
+      </tr>
+
+      <tr>
+        <td>5</td>
+        <td>VIP</td>
+        <td>Nguyen Thu Hien</td>
+        <td>10/08/1992</td>
+        <td>Male</td>
+        <td>184016595</td>
+        <td>0973439239</td>
+        <td>kisibian108@gmail.com</td>
+        <td>Huong Khe Ha Tinh</td>
+        <td>
+          <a class="btn btn-outline-warning" role="button" [routerLink]="['/customer-edit']">Edit</a>
+        </td>
+        <td>
+          <app-delete></app-delete>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+<div>
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

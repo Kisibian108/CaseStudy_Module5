@@ -5,17 +5,11 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<h3>Add Customer</h3>
-<p>
-  <a th:href="@{/customer}">
-    Back to customer list
-  </a>
-</p>
 <div class="container">
   <form th:action="@{/customer/save}" th:object="${customer}"
         method="post" novalidate="novalidate">
     <input type="hidden" th:field="*{id}"/>
-    <div class="mb-3">
+    <div class="mb-3" style="margin-top: 10px">
       <label class="form-label">Customer Type</label>
       <!--            <input type="text" th:field="*{customerType}"/>-->
       <select th:field="*{customerType}" class="form-control" >
@@ -57,7 +51,7 @@
       <input type="text" th:field="*{address}" class="form-control"/>
       <p style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
     </div>
-    <input type="submit" value="Save"/>
+    <input type="submit" class="btn btn-primary" value="Save"/>
   </form>
 </div>
 <footer th:replace="/layout :: footer"></footer>
