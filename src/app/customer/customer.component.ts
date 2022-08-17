@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Customer} from "../customer";
-import {CustomerManagementService} from "../../service/customer-management.service";
-import {CustomerTypeService} from "../../service/customer-type.service";
-import {CustomerType} from "../../model/customer-type";
+import {Customer} from "../model/customer";
+import {CustomerService} from "../service/customer.service";
 
 @Component({
   selector: 'app-customer',
@@ -13,7 +11,7 @@ export class CustomerComponent implements OnInit {
 
   customers: Customer[] = [];
 
-  constructor(private customerService: CustomerManagementService
+  constructor(private customerService: CustomerService
   ) {
   }
 
