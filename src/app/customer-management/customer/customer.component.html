@@ -20,95 +20,18 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>1</td>
-        <td>VIP</td>
-        <td>Nguyen Truong Lam</td>
-        <td>10/08/1992</td>
-        <td>Male</td>
-        <td>184016595</td>
-        <td>0973439239</td>
-        <td>kisibian108@gmail.com</td>
-        <td>Huong Khe Ha Tinh</td>
-        <td>
-          <a class="btn btn-outline-warning" role="button"
-             [routerLink]="['/customer-edit']">Edit</a>
-        </td>
-        <td>
-          <app-delete></app-delete>
-        </td>
-      </tr>
-
-      <tr>
-        <td>2</td>
-        <td>Normal</td>
-        <td>Nguyen Ngoc Dang</td>
-        <td>10/09/1989</td>
-        <td>Female</td>
-        <td>132145637</td>
-        <td>0972321537</td>
-        <td>Ngoc@gmail.com</td>
-        <td>Da Nang</td>
-        <td>
-          <a class="btn btn-outline-warning" role="button" href="http://localhost:4200/customer-edit">Edit</a>
-        </td>
-        <td>
-          <app-delete></app-delete>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>VIP</td>
-        <td>Nguyen Xuan Linh</td>
-        <td>10/08/1992</td>
-        <td>Male</td>
-        <td>184016595</td>
-        <td>0973439239</td>
-        <td>kisibian108@gmail.com</td>
-        <td>Huong Khe</td>
-        <td>
-          <a class="btn btn-outline-warning" role="button" [routerLink]="['/customer-edit']">Edit</a>
-        </td>
-        <td>
-
-          <app-delete></app-delete>
-        </td>
-      </tr>
-
-      <tr>
-        <td>4</td>
-        <td>Normal</td>
-        <td>Nguyen Thu Hoai</td>
-        <td>10/09/1989</td>
-        <td>Female</td>
-        <td>132145637</td>
-        <td>0972321537</td>
-        <td>Ngoc@gmail.com</td>
-        <td>Da Nang</td>
-        <td>
-          <a class="btn btn-outline-warning" role="button" [routerLink]="['/customer-edit']">Edit</a>
-        </td>
-        <td>
-          <app-delete></app-delete>
-        </td>
-      </tr>
-
-      <tr>
-        <td>5</td>
-        <td>VIP</td>
-        <td>Nguyen Thu Hien</td>
-        <td>10/08/1992</td>
-        <td>Male</td>
-        <td>184016595</td>
-        <td>0973439239</td>
-        <td>kisibian108@gmail.com</td>
-        <td>Huong Khe Ha Tinh</td>
-        <td>
-          <a class="btn btn-outline-warning" role="button" [routerLink]="['/customer-edit']">Edit</a>
-        </td>
-        <td>
-          <app-delete></app-delete>
-        </td>
+      <tr *ngFor="let customer of customers; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{customer.customerType.name}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer.birthday}}</td>
+        <td>{{customer.gender}}</td>
+        <td>{{customer.idCard}}</td>
+        <td>{{customer.phoneNumber}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.address}}</td>
+        <td><a [routerLink]="['/customer-edit']" role="button" class="btn btn-warning">Edit</a></td>
+        <td><app-delete></app-delete></td>
       </tr>
       </tbody>
     </table>

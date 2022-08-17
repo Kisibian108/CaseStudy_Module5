@@ -5,9 +5,8 @@
 body, h2 {
   font-family: Myriad, serif;
 }
-
 #menu {
-  height: 50px;
+  height: 30px;
   padding: 0;
   margin: 0;
   background-color: #007A78;
@@ -28,11 +27,11 @@ body, h2 {
 
 #menu li a {
   width: 140px;
-  height: 50px;
+  height: 30px;
   display: block;
   text-decoration: none;
   text-align: center;
-  line-height: 50px;
+  line-height: 30px;
   background-color: #007A78;
   color: white;
 }
