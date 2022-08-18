@@ -9,25 +9,24 @@
         <thead>
         <tr>
           <th>ID</th>
+          <th>ID Contract</th>
           <th>Facility</th>
           <th>Customer</th>
           <th>Start Date</th>
           <th>End Date</th>
           <th>Deposit</th>
-          <th>Facility Attach </th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let contract of contracts; index as i">
           <td>{{i + 1}}</td>
-<!--          <td>{{contract.facilityType.name}}</td>-->
-<!--          <td>{{contract.customerType.name}}</td>-->
+          <td>{{contract.idContract}}</td>
+          <td>{{contract.facility}}</td>
+          <td>{{contract.customer}}</td>
           <td>{{contract.startDate}}</td>
           <td>{{contract.endDate}}</td>
           <td>{{contract.deposit}}</td>
-          <td>{{contract.facilityAttach}}</td>
         </tr>
-
         </tbody>
       </table>
     </div>
@@ -50,7 +49,4 @@
     </ul>
   </nav>
 </div>
-
-
-
 </body>

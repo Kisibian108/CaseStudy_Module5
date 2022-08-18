@@ -18,6 +18,7 @@ import {CommonModule} from "@angular/common";
 import { DeleteComponent } from './delete/delete.component';
 import {FacilityRoutingModule} from "./facility-routing.module";
 import { CustomerTypeComponent } from './customer-type/customer-type.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'customer'},
@@ -53,7 +54,9 @@ const routes: Routes = [
     CustomerRoutingModule,
     FacilityRoutingModule,
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

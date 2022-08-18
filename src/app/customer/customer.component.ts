@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from "../model/customer";
 import {CustomerService} from "../service/customer.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-customer',
@@ -21,6 +22,6 @@ export class CustomerComponent implements OnInit {
 
   getAll() {
     this.customers = this.customerService.getAll();
-
   }
+
 }
