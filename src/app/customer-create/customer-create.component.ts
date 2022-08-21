@@ -82,5 +82,4 @@ export class CustomerCreateComponent implements OnInit {
   get idCard() {
     return this.customerForm.get('idCard');
   }
-
 }

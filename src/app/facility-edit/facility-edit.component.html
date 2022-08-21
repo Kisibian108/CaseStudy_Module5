@@ -1,73 +1,140 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-<body>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="/layout :: head">-->
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="container">-->
+
+<!--  <form th:action="@{/facility/update}" th:object="${facility}"-->
+<!--        method="POST" novalidate="novalidate">-->
+<!--    <input type="hidden" th:field="*{id}"/>-->
+<!--    <div class="mb-3" style="margin-top: 10px">-->
+<!--      <label class="form-label">Name</label>-->
+<!--      <input type="text" th:field="*{name}" class="form-control"/>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--      <label class="form-label">Area</label>-->
+<!--      <input type="number" th:field="*{area}" class="form-control"/>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--      <label class="form-label">Cost</label>-->
+<!--      <input type="number" th:field="*{cost}" class="form-control"/>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--      <label class="form-label">Max People</label>-->
+<!--      <input type="number" th:field="*{maxPeople}" class="form-control"/>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--      <label class="form-label">Rent Type</label>-->
+<!--      &lt;!&ndash;            <input type="text" th:field="*{customerType}"/>&ndash;&gt;-->
+<!--      <select th:field="*{rentType}" class="form-control">-->
+<!--        <option th:each="item : ${rentType}" th:value="${item.id}" th:text="${item.name}" ></option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--      <label class="form-label">Facility Type</label>-->
+<!--      &lt;!&ndash;            <input type="text" th:field="*{customerType}"/>&ndash;&gt;-->
+<!--      <select th:field="*{facilityType}" class="form-control">-->
+<!--        <option th:each="item : ${facilityType}" th:value="${item.id}" th:text="${item.name}" ></option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--      <label class="form-label">Standard Room</label>-->
+<!--      <input type="text" th:field="*{standardRoom}" class="form-control"/>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--      <label class="form-label">Convenience</label>-->
+<!--      <input type="text" th:field="*{convenience}" class="form-control"/>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--      <label class="form-label">Pool Area</label>-->
+<!--      <input type="number" th:field="*{poolArea}" class="form-control"/>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--      <label class="form-label">Free</label>-->
+<!--      <input type="text" th:field="*{free}" class="form-control"/>-->
+<!--    </div>-->
+<!--    <div class="mb-3" >-->
+<!--    <input type="submit" class="btn btn-warning" value="Edit"/>-->
+<!--      <a style="margin-left: 20px" class="btn btn-primary" role="button" [routerLink]="['/facility']" >Back to facility</a>-->
+<!--    </div>-->
+
+<!--  </form>-->
+<!--</div>-->
+<!--<footer th:replace="/layout :: footer">-->
+<!--</footer>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"-->
+<!--        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--</body>-->
+<!--</html>-->
 
 <div class="container">
-
-  <form th:action="@{/facility/update}" th:object="${facility}"
-        method="POST" novalidate="novalidate">
-    <input type="hidden" th:field="*{id}"/>
+  <form [formGroup]="facilityForm" (ngSubmit)="updateFacility(id)">
+    <input type="hidden" />
     <div class="mb-3" style="margin-top: 10px">
-      <label class="form-label">Name</label>
-      <input type="text" th:field="*{name}" class="form-control"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Area</label>
-      <input type="number" th:field="*{area}" class="form-control"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Cost</label>
-      <input type="number" th:field="*{cost}" class="form-control"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Max People</label>
-      <input type="number" th:field="*{maxPeople}" class="form-control"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Rent Type</label>
-      <!--            <input type="text" th:field="*{customerType}"/>-->
-      <select th:field="*{rentType}" class="form-control">
-        <option th:each="item : ${rentType}" th:value="${item.id}" th:text="${item.name}" ></option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Facility Type</label>
-      <!--            <input type="text" th:field="*{customerType}"/>-->
-      <select th:field="*{facilityType}" class="form-control">
-        <option th:each="item : ${facilityType}" th:value="${item.id}" th:text="${item.name}" ></option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Standard Room</label>
-      <input type="text" th:field="*{standardRoom}" class="form-control"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Convenience</label>
-      <input type="text" th:field="*{convenience}" class="form-control"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Pool Area</label>
-      <input type="number" th:field="*{poolArea}" class="form-control"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Free</label>
-      <input type="text" th:field="*{free}" class="form-control"/>
-    </div>
-    <div class="mb-3" >
-    <input type="submit" class="btn btn-warning" value="Edit"/>
-      <a style="margin-left: 20px" class="btn btn-primary" role="button" [routerLink]="['/facility']" >Back to facility</a>
-    </div>
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" formControlName="name"/>
+        <p style="color: red" *ngIf="facilityForm.controls.name.hasError('required') && facilityForm.controls.name.touched ">Ten ko duoc chua so</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Area</label>
+        <input type="number" class="form-control" name="area" formControlName="area"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="number" class="form-control" name="price" formControlName="price"/>
+        <p style="color: red" *ngIf="facilityForm.controls.price.hasError('required') && facilityForm.controls.price.touched ">Price phai la so duong</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Max People</label>
+        <input type="number" class="form-control" name="maxPeople" formControlName="maxPeople"/>
+        <p style="color: red" *ngIf="facilityForm.controls.maxPeople.hasError('required') && facilityForm.controls.maxPeople.touched">maxPeople ko duoc de trong</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">RentType</label>
+        <select  class="form-control" name="rentType" formControlName="rentType">
+          <option *ngFor="let item of rentType" [ngValue]="item">{{item.name}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">FacilityType</label>
+        <select  class="form-control" name="facilityType" formControlName="facilityType">
+          <option *ngFor="let item of facilityType" [ngValue]="item">{{item.name}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">StandardRoom</label>
+        <input type="text" name="standardRoom" formControlName="standardRoom" class="form-control"/>
+        <p style="color: red" *ngIf="facilityForm.controls.standardRoom.hasError('required') && facilityForm.controls.standardRoom.touched">Std Room ko duoc de trong</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Other</label>
+        <input type="text" name="other" formControlName="other" class="form-control"/>
+        <p style="color: red" *ngIf="facilityForm.controls.other.hasError('required') && facilityForm.controls.other.touched">other ko duoc de trong</p>
 
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Pool</label>
+        <input type="number" class="form-control" name="pool" formControlName="pool"/>
+        <p style="color: red" *ngIf="facilityForm.controls.pool.hasError('required') && facilityForm.controls.pool.touched">Pool ko duoc de trong</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Floor</label>
+        <input type="number" class="form-control" name="floor" formControlName="floor"/>
+        <p style="color: red" *ngIf="facilityForm.controls.floor.hasError('required') && facilityForm.controls.floor.touched">Floor phai la so duong</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Service</label>
+        <input type="te" class="form-control" name="service" formControlName="service"/>
+        <p style="color: red" *ngIf="facilityForm.controls.service.hasError('required') && facilityForm.controls.service.touched">Service ko duoc de trong</p>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Save"/>
+    </div>
   </form>
 </div>
-<footer th:replace="/layout :: footer">
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+

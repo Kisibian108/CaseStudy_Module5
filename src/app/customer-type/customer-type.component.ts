@@ -10,20 +10,19 @@ import {CustomerTypeService} from "../service/customer-type.service";
 })
 export class CustomerTypeComponent implements OnInit {
 
-  customerType: CustomerType[] = [ { name: 'Diamond'},
-    { name: 'Golden'},
-    { name: 'Silver'},
-    { name: 'Member'}];
+  // customerType: CustomerType[] = [ { name: 'Diamond'},
+  //   { name: 'Golden'},
+  //   { name: 'Silver'},
+  //   { name: 'Member'}];
 
   constructor(private customerTypeService: CustomerTypeService
   ) {
   }
 
   ngOnInit() {
-    this.getAll();
   }
 
-  getAll() {
-    this.customerType = this.customerTypeService.getAll();
-  }
+  // getAll() {
+  //   this.customerType = this.customerTypeService.getAll();
+  // }
 }

@@ -11,7 +11,7 @@
           <div class="card-body" >
             <h4>{{facility.name}}</h4>
             <h6>Area: {{facility.area}}<span>m2</span></h6>
-            <a style="margin-right: 10px" [routerLink]="['/facility-edit']" role="button" class="btn btn-warning">Edit</a>
+            <a style="margin-right: 10px" [routerLink]="['/facility-edit',facility.id]" role="button" class="btn btn-warning">Edit</a>
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal5">
               Delete
             </button>

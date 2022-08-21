@@ -1,6 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Contract} from "../model/contract";
 import {CustomerType} from "../model/customer-type";
+import {Observable} from "rxjs";
+import {Customer} from "../model/customer";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
+
+const API_URL = `${environment.apiUrl}`;
 
 @Injectable({
   providedIn: 'root'
@@ -103,14 +109,26 @@ export class ContractService {
 
     }, {}];
 
-  getAll() {
-    return this.contracts;
+  // getAll() {
+  //   return this.contracts;
+  // }
+  //
+  // saveContract(contract: Contract) {
+  //   this.contracts.push(contract);
+  // }
+
+  getAll(): Observable<Contract[]> {
+    return this.http.get<Contract[]>(API_URL + '/contracts');
   }
 
-  saveContract(contract: Contract) {
-    this.contracts.push(contract);
+  // saveCustomer(customer) {
+  //   this.customers.push(customer);
+  // }
+
+  saveContract(contract): Observable<Contract> {
+    return this.http.post<Contract>(API_URL + '/contracts', contract);
   }
 
-  constructor() {
+  constructor(private http:HttpClient) {
   }
 }

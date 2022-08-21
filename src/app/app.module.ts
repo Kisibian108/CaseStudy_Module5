@@ -19,6 +19,7 @@ import { CustomerTypeComponent } from './customer-type/customer-type.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {RentTypeService} from "./service/rent-type.service";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'customer'},
@@ -26,7 +27,7 @@ const routes: Routes = [
   {path: 'customer-create', component:CustomerCreateComponent},
   {path: 'customer-edit/:id', component:CustomerEditComponent},
   {path: 'facility-create', component:FacilityCreateComponent},
-  {path: 'facility-edit', component:FacilityEditComponent},
+  {path: 'facility-edit/:id', component:FacilityEditComponent},
   {path: 'facility', component:FacilityComponent},
   {path: 'contract', component:ContractComponent},
   {path: 'contract-create', component:ContractCreateComponent},
