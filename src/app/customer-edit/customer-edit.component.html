@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html >
-<head ></head>
+<html>
+<head></head>
 <body>
-
 <div class="container">
-  <form [formGroup]="customerForm" (ngSubmit)="submit() ">
+  <form [formGroup]="customerForm"  (ngSubmit)="updateCustomer(id)" >
     <input type="hidden" />
     <div class="mb-3" style="margin-top: 10px">
       <label class="form-label">Customer Type</label>
-      <select  class="form-control" name="customerType" formControlName="customerType">
-        <option *ngFor="let c of customerType">
-          {{c.name}}
-        </option>
+      <select class="form-select" formControlName="customerType">
+        <option [ngValue]="null" disabled>-----Choose-----</option>
+        <option *ngFor="let item of customerType" [ngValue]="item">{{item.name}}</option>
+        <p style="color:red" *ngIf="customerForm.controls.customerType.hasError('required') && customerForm.controls.customerType.touched"> Is not blank</p>
       </select>
       <div class="mb-3">
         <label class="form-label">Name</label>
@@ -32,13 +31,13 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Phone Number</label>
-        <input type="text" name="phone" formControlName="phone" class="form-control"/>
+        <input type="text" name="phoneNumber" formControlName="phoneNumber" class="form-control"/>
         <p style="color: red" *ngIf="customerForm.controls.phoneNumber.hasError('pattern')">Phone phai dung dinh dang</p>
       </div>
       <div class="mb-3">
         <label class="form-label">Email</label>
         <input type="text" name="email" formControlName="email" class="form-control"/>
-        <p style="color: red" *ngIf="customerForm.controls.email.hasError('pattern')">Email phai dung dinh dang</p>
+        <p style="color: red" *ngIf="customerForm.controls.email.hasError('email')">Email phai dung dinh dang</p>
       </div>
       <div class="mb-3">
         <label class="form-label">Address</label>

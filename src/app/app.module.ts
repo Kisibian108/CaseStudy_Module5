@@ -13,23 +13,25 @@ import { FacilityEditComponent } from './facility-edit/facility-edit.component';
 import { FacilityCreateComponent } from './facility-create/facility-create.component';
 import { ContractCreateComponent } from './contract-create/contract-create.component';
 import {RouterModule, Routes} from "@angular/router";
-import {CustomerRoutingModule} from "./customer-routing.module";
 import {CommonModule} from "@angular/common";
 import { DeleteComponent } from './delete/delete.component';
-import {FacilityRoutingModule} from "./facility-routing.module";
 import { CustomerTypeComponent } from './customer-type/customer-type.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'customer'},
   {path: 'customer', component: CustomerComponent},
   {path: 'customer-create', component:CustomerCreateComponent},
-  {path: 'customer-edit', component:CustomerEditComponent},
+  {path: 'customer-edit/:id', component:CustomerEditComponent},
   {path: 'facility-create', component:FacilityCreateComponent},
   {path: 'facility-edit', component:FacilityEditComponent},
   {path: 'facility', component:FacilityComponent},
   {path: 'contract', component:ContractComponent},
-  {path: 'contract-create', component:ContractCreateComponent}
+  {path: 'contract-create', component:ContractCreateComponent},
+  {path: 'customer-delete/:id', component:CustomerDeleteComponent},
+
 ]
 
 @NgModule({
@@ -47,12 +49,12 @@ const routes: Routes = [
     ContractCreateComponent,
     DeleteComponent,
     CustomerTypeComponent,
+    CustomerDeleteComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     RouterModule,
-    CustomerRoutingModule,
-    FacilityRoutingModule,
     CommonModule,
     RouterModule.forRoot(routes),
     FormsModule,
