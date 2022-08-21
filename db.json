@@ -1,3 +1,14 @@
 {
-  "customers": []
+  "customers": [
+    {  "id": 1,
+      "customerType": {"name": "Diamond"},
+      "name": "Lam",
+      "birthday": "2022-08-08",
+      "gender": "Male",
+      "idCard": 192123219,
+      "phoneNumber": "0982123219",
+      "email": "fefe@gmail.com",
+      "address": "Ha Tinh"
+    }
+  ]
 }

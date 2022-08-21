@@ -38,7 +38,7 @@ export class CustomerComponent implements OnInit {
     }
     );
   }
-      
+
   showDelete(customer: Customer) {
     this.idDelete = customer.id || 0;
   }
