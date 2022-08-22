@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="contractForm" (ngSubmit)="submit()">
+  <form [formGroup]="contractForm" (ngSubmit)="submit()" *ngIf="contractForm">
     <input type="hidden" />
     <div class="mb-3" style="margin-top: 10px">
       <div class="mb-3">
@@ -8,11 +8,15 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Facility</label>
-        <input type="text" class="form-control" name="facility" formControlName="facility"/>
+        <select  class="form-control" name="facility" formControlName="facility">
+          <option *ngFor="let item of facilities" [ngValue]="item">{{item.name}}</option>
+        </select>
       </div>
       <div class="mb-3">
         <label class="form-label">Customer</label>
-        <input type="text" class="form-control" name="customer" formControlName="customer"/>
+        <select  class="form-control" name="customer" formControlName="customer">
+          <option *ngFor="let item of customers" [ngValue]="item">{{item.name}}</option>
+        </select>
       </div>
       <div class="mb-3">
         <label class="form-label">StartDate</label>

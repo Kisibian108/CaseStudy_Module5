@@ -2,24 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CustomerComponent } from './customer/customer.component';
+import { CustomerComponent } from './customer-management/customer/customer.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { FacilityComponent } from './facility/facility.component';
-import { ContractComponent } from './contract/contract.component';
-import { CustomerEditComponent } from './customer-edit/customer-edit.component';
-import { CustomerCreateComponent } from './customer-create/customer-create.component';
-import { FacilityEditComponent } from './facility-edit/facility-edit.component';
-import { FacilityCreateComponent } from './facility-create/facility-create.component';
-import { ContractCreateComponent } from './contract-create/contract-create.component';
+import { FacilityComponent } from './facility-management/facility/facility.component';
+import { ContractComponent } from './contract-management/contract/contract.component';
+import { CustomerEditComponent } from './customer-management/customer-edit/customer-edit.component';
+import { CustomerCreateComponent } from './customer-management/customer-create/customer-create.component';
+import { FacilityEditComponent } from './facility-management/facility-edit/facility-edit.component';
+import { FacilityCreateComponent } from './facility-management/facility-create/facility-create.component';
+import { ContractCreateComponent } from './contract-management/contract-create/contract-create.component';
 import {RouterModule, Routes} from "@angular/router";
 import {CommonModule} from "@angular/common";
-import { DeleteComponent } from './delete/delete.component';
-import { CustomerTypeComponent } from './customer-type/customer-type.component';
+import { DeleteComponent } from './customer-management/delete/delete.component';
+import { CustomerTypeComponent } from './customer-management/customer-type/customer-type.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
+import { CustomerDeleteComponent } from './customer-management/customer-delete/customer-delete.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {RentTypeService} from "./service/rent-type.service";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'customer'},

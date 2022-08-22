@@ -2,6 +2,19 @@
 <div class="row">
   <h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px">Customer management</h2>
 </div>
+
+<!--<input [(ngModel)]="nameCustomer" >-->
+<!--<button (click)="searchName()">Search</button>-->
+
+<form>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon"><i class="fa fa-search"></i></div>
+      <input type="text" class="form-control" placeholder="Search" ng-model="searchName">
+    </div>
+  </div>
+</form>
+
 <div class="container">
     <table class="table">
       <thead>
@@ -57,6 +70,7 @@
             </div>
           </div>
       </tr>
+      <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchName">
       </tbody>
     </table>
 <div>

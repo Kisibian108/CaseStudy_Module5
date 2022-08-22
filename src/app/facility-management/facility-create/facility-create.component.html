@@ -106,16 +106,20 @@
       <div class="mb-3">
         <label class="form-label">Name</label>
         <input type="text" class="form-control" name="name" formControlName="name"/>
-        <p style="color: red" *ngIf="facilityForm.controls.name.hasError('required') && facilityForm.controls.name.touched ">Ten ko duoc chua so</p>
+        <p style="color: red" *ngIf="facilityForm.controls.name.hasError('pattern') && facilityForm.controls.name.touched ">Ten ko duoc chua so</p>
+        <p style="color: red" *ngIf="facilityForm.controls.name.hasError('required') && facilityForm.controls.name.touched ">Ten ko duoc de trong</p>
       </div>
       <div class="mb-3">
         <label class="form-label">Area</label>
         <input type="number" class="form-control" name="area" formControlName="area"/>
+        <p style="color: red" *ngIf="facilityForm.controls.area.hasError('pattern') && facilityForm.controls.name.touched ">Dien tich phai la so duong</p>
+        <p style="color: red" *ngIf="facilityForm.controls.area.hasError('required') && facilityForm.controls.name.touched ">Dien tich ko duoc de trong</p>
+
       </div>
       <div class="mb-3">
         <label class="form-label">Price</label>
         <input type="number" class="form-control" name="price" formControlName="price"/>
-        <p style="color: red" *ngIf="facilityForm.controls.price.hasError('required') && facilityForm.controls.price.touched ">Price phai la so duong</p>
+        <p style="color: red" *ngIf="facilityForm.controls.price.hasError('required') && facilityForm.controls.price.touched ">Price ko dc de trong</p>
       </div>
       <div class="mb-3">
         <label class="form-label">Max People</label>
@@ -153,18 +157,19 @@
       <div class="mb-3">
         <label class="form-label">Floor</label>
         <input type="number" class="form-control" name="floor" formControlName="floor"/>
-        <p style="color: red" *ngIf="facilityForm.controls.floor.hasError('required') && facilityForm.controls.floor.touched">Floor phai la so duong</p>
+        <p style="color: red" *ngIf="facilityForm.controls.floor.hasError('pattern') && facilityForm.controls.floor.touched">Floor phai la so duong</p>
+        <p style="color: red" *ngIf="facilityForm.controls.floor.hasError('required') && facilityForm.controls.floor.touched">Floor ko dc de trong</p>
       </div>
       <div class="mb-3">
         <label class="form-label">Service</label>
         <input type="te" class="form-control" name="service" formControlName="service"/>
         <p style="color: red" *ngIf="facilityForm.controls.service.hasError('required') && facilityForm.controls.service.touched">Service ko duoc de trong</p>
       </div>
-<!--      <div class="mb-3">-->
-<!--        <label class="form-label">Img</label>-->
-<!--        <input type="text" class="form-control" name="img" formControlName="img"/>-->
-<!--        <p style="color: red" *ngIf="facilityForm.controls.img.hasError('required') && facilityForm.controls.img.touched">Service ko duoc de trong</p>-->
-<!--      </div>-->
+      <div class="mb-3">
+        <label class="form-label">Img</label>
+        <input type="text" name="img" formControlName="img" />
+<!--        <p style="color: red" *ngIf="facilityForm.controls.img.hasError('required') && facilityForm.controls.img.touched">Img ko duoc de trong</p>-->
+      </div>
       <input type="submit" class="btn btn-primary" [disabled]="!facilityForm.valid" value="Save"/>
     </div>
   </form>

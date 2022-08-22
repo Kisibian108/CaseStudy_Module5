@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Contract} from "../model/contract";
-import {ContractService} from "../service/contract.service";
-import {Customer} from "../model/customer";
-import {CustomerType} from "../model/customer-type";
-import {CustomerService} from "../service/customer.service";
-import {CustomerTypeService} from "../service/customer-type.service";
+import {Contract} from "../../model/contract";
+import {ContractService} from "../../service/contract.service";
+import {Customer} from "../../model/customer";
+import {CustomerType} from "../../model/customer-type";
+import {CustomerService} from "../../service/customer.service";
+import {CustomerTypeService} from "../../service/customer-type.service";
 import {Router} from "@angular/router";
 
 @Component({

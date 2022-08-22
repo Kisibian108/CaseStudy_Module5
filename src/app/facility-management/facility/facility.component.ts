@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Facility} from "../model/facility";
-import {FacilityServiceService} from "../service/facility-service.service";
+import {Facility} from "../../model/facility";
+import {FacilityServiceService} from "../../service/facility-service.service";
 import {Router} from "@angular/router";
-import {RentType} from "../model/rent-type";
-import {FacilityType} from "../model/facility-type";
-import {RentTypeService} from "../service/rent-type.service";
-import {FacilityTypeService} from "../service/facility-type.service";
+import {RentType} from "../../model/rent-type";
+import {FacilityType} from "../../model/facility-type";
+import {RentTypeService} from "../../service/rent-type.service";
+import {FacilityTypeService} from "../../service/facility-type.service";
 
 @Component({
   selector: 'app-facility',

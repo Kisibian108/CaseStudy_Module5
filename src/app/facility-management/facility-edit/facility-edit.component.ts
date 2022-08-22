@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CustomerType} from "../model/customer-type";
-import {CustomerService} from "../service/customer.service";
-import {CustomerTypeService} from "../service/customer-type.service";
+import {CustomerType} from "../../model/customer-type";
+import {CustomerService} from "../../service/customer.service";
+import {CustomerTypeService} from "../../service/customer-type.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {RentType} from "../model/rent-type";
-import {FacilityType} from "../model/facility-type";
-import {FacilityServiceService} from "../service/facility-service.service";
-import {RentTypeService} from "../service/rent-type.service";
-import {FacilityTypeService} from "../service/facility-type.service";
+import {RentType} from "../../model/rent-type";
+import {FacilityType} from "../../model/facility-type";
+import {FacilityServiceService} from "../../service/facility-service.service";
+import {RentTypeService} from "../../service/rent-type.service";
+import {FacilityTypeService} from "../../service/facility-type.service";
 
 @Component({
   selector: 'app-facility-edit',
@@ -53,7 +53,8 @@ export class FacilityEditComponent implements OnInit {
         other: new FormControl(facility.other, [Validators.required]),
         pool: new FormControl(facility.pool, [Validators.required]),
         floor: new FormControl(facility.floor, [Validators.required,Validators.pattern('^[1-9]+$')]),
-        service: new FormControl(facility.service, [Validators.required])
+        service: new FormControl(facility.service, [Validators.required]),
+        img: new FormControl(facility.img)
       });
       console.log(
         facility
