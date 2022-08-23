@@ -1,59 +1,105 @@
-<div>
-  <h2 style="text-align: center; margin-top: 20px">Facility management</h2>
-</div>
 <div class="container">
-    <div class="row" >
-      <div class="col-3" *ngFor="let facility of facilities">
-        <div class="card" style="width: 19rem;">
-          <img style="width: 300px; height: 250px"
-            [src]="facility.img"
-            class="card-img-top" alt="...">
-          <div class="card-body" >
-            <h4>{{facility.name}}</h4>
-            <h6>Area: {{facility.area}}<span>m2</span></h6>
-            <a style="margin-right: 10px" [routerLink]="['/facility-edit',facility.id]" role="button" class="btn btn-warning">Edit</a>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+  <div class="row">
+    <h2 style="text-align: center; margin-top: 20px">Facility management</h2>
+  </div>
+  <div class="row">
+    <div class="col-3" *ngFor="let facility of facilities | paginate: { itemsPerPage: 4, currentPage: p }">
+      <div class="card" style="width: 19rem;">
+        <img style="width: 300px; height: 250px"
+             [src]="facility.img"
+             class="card-img-top" alt="...">
+        <div class="card-body">
+          <h4>{{facility.name}}</h4>
+          <h6>Area: {{facility.area}}<span>m2</span></h6>
+          <td><a style="margin-right: 10px" [routerLink]="['/facility-edit',facility.id]" role="button"
+                 class="btn btn-warning">Edit</a></td>
+          <td>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    (click)="showDelete(facility)">
               Delete
             </button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel5">Delete</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Do you want to delete <span style="color: red">this facility</span>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Delete</button>
-                  </div>
+          </td>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                          aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
+                  Do you want delete facility: <span style="color:red;">{{name}}</span>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                          (click)="deleteFacility(idDelete)">Yes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <td>
+            <button style="margin-left: 10px" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal1" (click)="showFacility(facility)">
+              Detail
+            </button>
+          </td>
+          <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel1">Detail</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                          aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Name: <span>{{name}}</span><br>
+                  Area: <span>{{area}}</span><br>
+                  Price: <span>{{price}}</span><br>
+                  Max people: <span>{{maxPeople}}</span><br>
+                  Rent Type: <span>{{rentType}}</span><br>
+                  Facility Type: <span>{{facilityType}}</span><br>
+                  Standard Room: <span>{{standardRoom}}</span><br>
+                  Other: <span>{{other}}</span><br>
+                  Pool: <span>{{pool}}</span><br>
+                  Floor: <span>{{floor}}</span><br>
+                  Service: <span>{{service}}</span><br>
+                </div>
+                <!--                  <div class="modal-footer">-->
+                <!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>-->
+                <!--                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteFacility(idDelete)">Yes</button>-->
+                <!--                  </div>-->
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div style="margin-top: 20px">
-    <nav aria-label="...">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" href="#">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item active" aria-current="page">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="container-fluid mt-3">
+      <div class="pagination float-end">
+        <pagination-controls (pageChange)=" p = $event"></pagination-controls>
+      </div>
     </div>
-  </div>
 
+    <!--    <div style="margin-top: 20px">-->
+    <!--    <nav aria-label="...">-->
+    <!--      <ul class="pagination">-->
+    <!--        <li class="page-item">-->
+    <!--          <a class="page-link" href="#">Previous</a>-->
+    <!--        </li>-->
+    <!--        <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+    <!--        <li class="page-item active" aria-current="page">-->
+    <!--          <a class="page-link" href="#">2</a>-->
+    <!--        </li>-->
+    <!--        <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+    <!--        <li class="page-item">-->
+    <!--          <a class="page-link" href="#">Next</a>-->
+    <!--        </li>-->
+    <!--      </ul>-->
+    <!--    </nav>-->
+    <!--    </div>-->
+  </div>
+</div>

@@ -30,8 +30,11 @@ export class CustomerService {
     return this.http.put<Customer>(`${API_URL}/customers/${id}`, customer);
   }
 
-
   deleteCustomer(id: number): Observable<Customer> {
     return this.http.delete<Customer>(`${API_URL}/customers/${id}`);
+  }
+
+  findCustomerByName(keyword: string) {
+    return this.http.get<Customer[]>(API_URL + '/customers?name_like=' + keyword );
   }
 }

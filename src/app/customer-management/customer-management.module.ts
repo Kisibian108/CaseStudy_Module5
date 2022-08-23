@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { CustomerManagementRoutingModule } from './customer-management-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [

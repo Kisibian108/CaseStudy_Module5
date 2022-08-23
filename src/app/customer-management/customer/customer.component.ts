@@ -4,8 +4,9 @@ import {CustomerService} from "../../service/customer.service";
 import {CustomerTypeService} from "../../service/customer-type.service";
 import {CustomerType} from "../../model/customer-type";
 import {Router} from "@angular/router";
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
+
+const API_URL = `${environment.apiUrl}`;
 
 @Component({
   selector: 'app-customer',
@@ -17,12 +18,14 @@ export class CustomerComponent implements OnInit {
   customers: Customer[] = [];
   customerType: CustomerType[] = [];
   idDelete: number;
-  nameCustomer: string
+  name: string
+  keyword: string
+  p: number = 0;
+
   constructor(
     private customerService: CustomerService,
     private customerTypeService: CustomerTypeService,
     private router: Router,
-    private http: HttpClient
   ) {
   }
 
@@ -32,45 +35,27 @@ export class CustomerComponent implements OnInit {
 
   getAll() {
     this.customerService.getAll().subscribe(customers => {
-      this.customers = customers;
-    }
+        this.customers = customers;
+      }
     );
   }
 
   showDelete(customer: Customer) {
     this.idDelete = customer.id || 0;
+    this.name = customer.name
   }
 
   deleteCustomer(id: number) {
     this.customerService.deleteCustomer(id).subscribe(() => {
-      this.router.navigate(['/customer']).then(r => this.ngOnInit() )  ;
+      this.router.navigate(['/customer']).then(r => this.ngOnInit());
     }, e => {
       console.log(e);
     });
   }
 
-  // searchName(): Observable<Customer[]> {
-  //   return this.http.get<Customer[]>("http://localhost:4200/customer?name_like=" + this.name)
-  // }
-
-  // getAll(): Observable<Customer[]> {
-  //   return this.http.get<Customer[]>(API_URL + '/customers');
-  // }
-  //
-  // saveCustomer(customer): Observable<Customer> {
-  //   return this.http.post<Customer>(API_URL + '/customers', customer);
-  // }
-  //
-  // findById(id: number): Observable<Customer> {
-  //   return this.http.get<Customer>(`${API_URL}/customers/${id}`);
-  // }
-  //
-  // updateCustomer(id: number, customer: Customer): Observable<Customer> {
-  //   return this.http.put<Customer>(`${API_URL}/customers/${id}`, customer);
-  // }
-  //
-  //
-  // deleteCustomer(id: number): Observable<Customer> {
-  //   return this.http.delete<Customer>(`${API_URL}/customers/${id}`);
-  // }
+  search(): void {
+    this.customerService.findCustomerByName(this.keyword).subscribe(customerList => {
+      this.customers = customerList;
+    });
+  }
 }

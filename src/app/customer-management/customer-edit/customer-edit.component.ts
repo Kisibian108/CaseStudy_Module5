@@ -4,6 +4,7 @@ import {CustomerService} from "../../service/customer.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CustomerType} from "../../model/customer-type";
 import {CustomerTypeService} from "../../service/customer-type.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-customer-edit',
@@ -20,7 +21,8 @@ export class CustomerEditComponent implements OnInit {
   constructor(private customerService: CustomerService,
               private customerTypeService: CustomerTypeService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private toastrService:ToastrService) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id') ;
       this.findById(this.id);
@@ -52,7 +54,8 @@ export class CustomerEditComponent implements OnInit {
   updateCustomer(id: number) {
     const customer = this.customerForm.value;
     this.customerService.updateCustomer(id, customer).subscribe(() => {
-      alert('Cập nhật thành công');
+      this.toastrService.success("cap nhat thanh cong")
+      // alert('Cập nhật thành công');
       this.router.navigate(['/customer'])
     }, e => {
       console.log(e);

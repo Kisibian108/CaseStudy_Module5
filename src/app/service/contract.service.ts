@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Contract} from "../model/contract";
-import {CustomerType} from "../model/customer-type";
 import {Observable} from "rxjs";
-import {Customer} from "../model/customer";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 

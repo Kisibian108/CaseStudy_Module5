@@ -1,21 +1,13 @@
 <body>
-<div class="row">
-  <h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px">Customer management</h2>
-</div>
-
-<!--<input [(ngModel)]="nameCustomer" >-->
-<!--<button (click)="searchName()">Search</button>-->
-
-<form>
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-addon"><i class="fa fa-search"></i></div>
-      <input type="text" class="form-control" placeholder="Search" ng-model="searchName">
-    </div>
-  </div>
-</form>
-
 <div class="container">
+  <div class="row">
+    <h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px">Customer management</h2>
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="keyword" placeholder="Search">
+    <button type="submit" class="btn-primary" (click)="search()">Search</button>
+  </div>
+  <div class="container">
     <table class="table">
       <thead>
       <tr>
@@ -33,7 +25,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let customer of customers; index as i">
+      <tr *ngFor="let customer of customers| paginate: { itemsPerPage: 5, currentPage: p }, index as i">
         <td>{{i + 1}}</td>
         <td>{{customer.customerType.name}}</td>
         <td>{{customer.name}}</td>
@@ -44,50 +36,58 @@
         <td>{{customer.email}}</td>
         <td>{{customer.address}}</td>
         <td><a [routerLink]="['/customer-edit',customer.id]" role="button" class="btn btn-warning">Edit</a></td>
-<!--        <td><app-delete></app-delete></td>-->
         <td>
-          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showDelete(customer)">
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  (click)="showDelete(customer)">
             Delete
           </button>
         </td>
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-               aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal"
-                          aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  Do you want delete id: {{idDelete}}
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCustomer(idDelete)">Yes</button>
-                </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Do you want delete customer <span style="color:red;">{{name}}</span>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCustomer(idDelete)">
+                  Yes
+                </button>
               </div>
             </div>
           </div>
+        </div>
       </tr>
       <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchName">
       </tbody>
     </table>
-<div>
-  <nav aria-label="...">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item active" aria-current="page">
-        <a class="page-link" href="#">2</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
-</div>
+    <div class="container-fluid mt-3">
+      <div class="pagination float-end">
+        <pagination-controls (pageChange)=" p = $event"></pagination-controls>
+      </div>
+    </div>
+    <div>
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </div>

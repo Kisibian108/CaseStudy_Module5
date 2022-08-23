@@ -1,43 +1,50 @@
 <div class="container">
   <form [formGroup]="customerForm" (ngSubmit)="submit()">
-    <input type="hidden" />
+    <input type="hidden"/>
     <div class="mb-3" style="margin-top: 10px">
       <label class="form-label">Customer Type</label>
-    <select  class="form-control" name="customerType" formControlName="customerType">
-      <option *ngFor="let item of customerType" [ngValue]="item">{{item.name}}</option>
-    </select>
-    <div class="mb-3">
+      <select class="form-control" name="customerType" formControlName="customerType">
+        <option *ngFor="let item of customerType" [ngValue]="item">{{item.name}}</option>
+      </select>
+      <div class="mb-3">
         <label class="form-label">Name</label>
         <input type="text" class="form-control" name="name" formControlName="name"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Birthday</label>
-      <input type="date" class="form-control" name="birthday" formControlName="birthday"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Gender</label>
-      <input type="text" class="form-control" name="gender" formControlName="gender"/>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">ID Card</label>
-      <input type="number" class="form-control" name="idCard" formControlName="idCard"/>
-      <p style="color: red" *ngIf="customerForm.controls.idCard.hasError('pattern')">IdCard phai dung dinh dang</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Phone Number</label>
-      <input type="text" name="phoneNumber" formControlName="phoneNumber" class="form-control"/>
-      <p style="color: red" *ngIf="customerForm.controls.phoneNumber.hasError('pattern')">Phone phai dung dinh dang</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Email</label>
-      <input type="text" name="email" formControlName="email" class="form-control"/>
-      <p style="color: red" *ngIf="customerForm.controls.email.hasError('pattern')">Email phai dung dinh dang</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Address</label>
-      <input type="text" name="address" formControlName="address" class="form-control"/>
-    </div>
-    <input type="submit" class="btn btn-primary" [disabled]="!customerForm.valid" value="Save"/>
+        <p style="color: red" *ngIf="customerForm.controls.name.hasError('pattern')">Name phai dung dinh dang</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Birthday</label>
+        <input type="date" class="form-control" name="birthday" formControlName="birthday"/>
+        <p style="color: red" *ngIf="customerForm.controls.birthday.hasError('ageError')">Tuoi phai tren 18</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Gender</label>
+        <!--      <input type="text" class="form-control" name="gender" formControlName="gender"/>-->
+        <select class="form-control" name="gender" formControlName="gender">
+          <option class="form-control" value="Male">Male</option>
+          <option class="form-control" value="Female">Female</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">ID Card</label>
+        <input type="number" class="form-control" name="idCard" formControlName="idCard"/>
+        <p style="color: red" *ngIf="customerForm.controls.idCard.hasError('pattern')">IdCard phai dung dinh dang</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone Number</label>
+        <input type="text" name="phoneNumber" formControlName="phoneNumber" class="form-control"/>
+        <p style="color: red" *ngIf="customerForm.controls.phoneNumber.hasError('pattern')">Phone phai dung dinh
+          dang</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" name="email" formControlName="email" class="form-control"/>
+        <p style="color: red" *ngIf="customerForm.controls.email.hasError('pattern')">Email phai dung dinh dang</p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Address</label>
+        <input type="text" name="address" formControlName="address" class="form-control"/>
+      </div>
+      <input type="submit" class="btn btn-primary" [disabled]="!customerForm.valid" value="Save"/>
     </div>
   </form>
 </div>

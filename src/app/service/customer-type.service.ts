@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 import {FacilityType} from "../model/facility-type";
 import {CustomerType} from "../model/customer-type";
 import {Facility} from "../model/facility";
+import {Observable} from "rxjs";
+import {Customer} from "../model/customer";
+import {environment} from "../../environments/environment";
+import {HttpClient} from "@angular/common/http";
 
+const API_URL = `${environment.apiUrl}`;
 @Injectable({
   providedIn: 'root'
 })
@@ -22,9 +27,13 @@ export class CustomerTypeService {
     return this.customerType;
   }
 
-  saveCustomerType(customerType: CustomerType) {
-    this.customerType.push(customerType);
-  }
+  // saveCustomerType(customerType: CustomerType) {
+  //   this.customerType.push(customerType);
+  // }
 
-  constructor() { }
+  // getAll(): Observable<CustomerType[]> {
+  //   return this.http.get<CustomerType[]>(API_URL + '/customerType');
+  // }
+
+  constructor(private http: HttpClient) { }
 }

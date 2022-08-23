@@ -15,9 +15,21 @@ import {FacilityTypeService} from "../../service/facility-type.service";
 export class FacilityComponent implements OnInit {
 
   facilities: Facility[] = [];
-  rentType: RentType[] = [];
-  facilityType: FacilityType[] = []
+  p: number = 0;
+  // rentType: RentType[] = [];
+  // facilityType: FacilityType[] = []
   idDelete: number;
+  name: string;
+  area: number;
+  price: number;
+  maxPeople: number;
+  rentType: string;
+  facilityType: string;
+  standardRoom: string;
+  other: string;
+  pool: number;
+  floor: number;
+  service: string;
 
   constructor(
     private facilityService: FacilityServiceService,
@@ -31,7 +43,8 @@ export class FacilityComponent implements OnInit {
     this.getAll();
   }
 
-  getAll() {
+  // @ts-ignore
+  getAll(): Facility[] {
     this.facilityService.getAll().subscribe(facilities => {
         this.facilities = facilities;
       }
@@ -40,6 +53,7 @@ export class FacilityComponent implements OnInit {
 
   showDelete(facility: Facility) {
     this.idDelete = facility.id || 0;
+    this.name = facility.name
   }
 
   // delete(idDelete: number) {
@@ -50,9 +64,23 @@ export class FacilityComponent implements OnInit {
 
   deleteFacility(id: number) {
     this.facilityService.deleteFacility(id).subscribe(() => {
-      this.router.navigate(['/facility'])  ;
+      this.router.navigate(['/facility']).then(r => this.ngOnInit())  ;
     }, e => {
       console.log(e);
     });
+  }
+
+  showFacility(facility: Facility) {
+    this.name = facility.name;
+    this.area = facility.area;
+    this.price = facility.price;
+    this.maxPeople = facility.maxPeople;
+    this.rentType = facility.rentType.name;
+    this.facilityType = facility.facilityType.name;
+    this.standardRoom = facility.standardRoom;
+    this.other = facility.other;
+    this.pool = facility.pool;
+    this.floor = facility.floor;
+    this.service = facility.service;
   }
 }

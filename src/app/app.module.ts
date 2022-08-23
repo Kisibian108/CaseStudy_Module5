@@ -14,11 +14,13 @@ import { FacilityCreateComponent } from './facility-management/facility-create/f
 import { ContractCreateComponent } from './contract-management/contract-create/contract-create.component';
 import {RouterModule, Routes} from "@angular/router";
 import {CommonModule} from "@angular/common";
-import { DeleteComponent } from './customer-management/delete/delete.component';
 import { CustomerTypeComponent } from './customer-management/customer-type/customer-type.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CustomerDeleteComponent } from './customer-management/customer-delete/customer-delete.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {NgxPaginationModule} from "ngx-pagination";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'customer'},
@@ -47,7 +49,6 @@ const routes: Routes = [
     FacilityEditComponent,
     FacilityCreateComponent,
     ContractCreateComponent,
-    DeleteComponent,
     CustomerTypeComponent,
     CustomerDeleteComponent,
   ],
@@ -58,7 +59,15 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
